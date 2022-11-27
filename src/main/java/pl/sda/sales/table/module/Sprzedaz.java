@@ -2,6 +2,7 @@ package pl.sda.sales.table.module;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 
@@ -22,6 +23,7 @@ public class Sprzedaz {
     private Double ilosc;
 
     @Column(nullable = false)
+    @CreationTimestamp
     private LocalDate localDate;
 
     @ManyToOne

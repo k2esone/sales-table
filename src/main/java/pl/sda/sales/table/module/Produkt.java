@@ -17,12 +17,13 @@ public class Produkt {
     private Long id;
 
     @Column(nullable = false)
+    @Enumerated
     private Kategoria kategoria;
 
     @Column(nullable = false)
     private String nazwa;
 
-    @Formula("(SELECT AVG(o.cena) FROM Sprzedaz o WHERE o.produkt_id=id)")
+    @Formula("SELECT (SUM(cena*ilosc)/SUM(ilosc)) FROM Sprzedaz o WHERE o.produkt_id=id")
     private Double sredniaWazona;
 
     @ToString.Exclude
