@@ -17,14 +17,14 @@ public class Produkt {
     private Long id;
 
     @Column(nullable = false)
-    @Enumerated
+    @Enumerated(value = EnumType.STRING)
     private Kategoria kategoria;
 
     @Column(nullable = false)
     private String nazwa;
 
-    @Formula("SELECT (SUM(cena*ilosc)/SUM(ilosc)) FROM Sprzedaz o WHERE o.produkt_id=id")
-    private Double sredniaWazona;
+//    @Formula("SELECT (SUM(s.cena*s.ilosc)/SUM(s.ilosc)) FROM Sprzedaz s WHERE s.produkt_id=id")
+//    private Double sredniaWazona;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
