@@ -23,8 +23,8 @@ public class Produkt {
     @Column(nullable = false)
     private String nazwa;
 
-//    @Formula("SELECT (SUM(s.cena*s.ilosc)/SUM(s.ilosc)) FROM Sprzedaz s WHERE s.produkt_id=id")
-//    private Double sredniaWazona;
+    @Formula(value = "SELECT (SUM(s.cena*s.ilosc)/SUM(s.ilosc)) FROM Sprzedaz s)")
+    private Double sredniaWazona;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude

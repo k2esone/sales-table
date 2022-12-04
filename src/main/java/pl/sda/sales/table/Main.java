@@ -154,7 +154,8 @@ public class Main {
         try (Session session = HibernateUtil.INSTANCE.getSessionFactory().openSession()) {
             TypedQuery<Sprzedaz> zapytanie = session.createQuery("FROM Sprzedaz", Sprzedaz.class);
             List<Sprzedaz> lista = zapytanie.getResultList();
-            System.out.println(lista.get(id));
+
+            lista.forEach(System.out::println);
 
         } catch (Exception ioe) {
 
